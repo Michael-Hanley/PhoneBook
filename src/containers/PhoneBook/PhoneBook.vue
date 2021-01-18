@@ -6,22 +6,22 @@
 </template>
 
 <script>
-import PhoneList from './PhoneList'
+import PhoneList from "./PhoneList";
 
 export default {
-  name: 'PhoneBook',
+  name: "PhoneBook",
   components: {
-    PhoneList
+    PhoneList,
   },
   props: {
-    msg: String
-  }
-}
+    msg: String,
+  },
+};
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
-  .phone-book {
-    max-width: 600px;
-  }
+.phone-book {
+  max-width: 600px;
+}
 </style>

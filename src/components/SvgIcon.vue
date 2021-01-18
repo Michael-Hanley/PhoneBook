@@ -8,18 +8,18 @@
 import icons from "@/assets/icons.json";
 
 export default {
-  name: "AppIcon",
+  name: "SvgIcon",
   props: {
     name: String,
     styles: {
-      type:String,
-      default: "width: 24px; height: 24px"
+      type: String,
+      default: "width: 24px; height: 24px",
     },
   },
   computed: {
     path() {
       return icons[this.name];
-    }
+    },
   },
 };
 </script>
