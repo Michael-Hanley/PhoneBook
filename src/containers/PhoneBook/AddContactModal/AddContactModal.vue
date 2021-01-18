@@ -6,6 +6,7 @@
         <InputField
           ref="inputRef"
           class="input-field"
+          autocomplete="off"
           inputId="nameInput"
           v-model="name"
           label="Name"

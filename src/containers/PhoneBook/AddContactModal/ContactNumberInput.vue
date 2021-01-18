@@ -1,15 +1,16 @@
 <template>
   <div class="input-container">
-    <InputField
-      class="input-field input-type"
-      label="Type"
-      inputId="numberType"
-      :value="number.type"
-      @input="(e) => onInput({ ...this.number, type: e })"
-      placeholder="Number Type"
-    />
+    <div class="input-type">
+      <SelectDropdown
+        :options="this.typeOptions"
+        :value="this.typeOptions[0]"
+        v-model="number.type"
+        >Type</SelectDropdown
+      >
+    </div>
     <InputField
       class="input-field input-number"
+      autocomplete="off"
       label="Phone Number"
       inputId="numberInput"
       :value="number.number"
@@ -27,6 +28,7 @@
 import Button from "@/components/Button";
 import InputField from "@/components/InputField";
 import SvgIcon from "@/components/SvgIcon";
+import SelectDropdown from "@/components/SelectDropdown";
 import { normalizePhone } from "@/utils/normalize";
 
 export default {
@@ -35,13 +37,15 @@ export default {
     InputField,
     Button,
     SvgIcon,
+    SelectDropdown,
   },
   props: {
     index: Number,
   },
   data: function () {
     return {
-      number: { number: "", type: "" },
+      number: { number: "", type: "Mobile" },
+      typeOptions: ["Mobile", "Home", "Fax", "Other"],
     };
   },
   methods: {
@@ -67,6 +71,8 @@ export default {
   display: flex;
 }
 .input-type {
+  padding: 10px;
+  text-align: left;
   flex: 1;
 }
 .input-number {
