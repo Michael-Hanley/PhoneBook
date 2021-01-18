@@ -1,39 +1,47 @@
 <template>
   <Modal @onClose="onClose">
-    <div class="modal-style">
-      Add New Contact
-      <div>
-        <InputField
-          ref="inputRef"
-          class="input-field"
-          autocomplete="off"
-          inputId="nameInput"
-          v-model="name"
-          label="Name"
-          placeholder="Contact Name"
-        />
-      </div>
-      <hr class="divider" />
-      <div v-for="(number, index) in numbers" :key="index">
-        <ContactNumberInput
-          :index="index"
-          v-on:removeNumber="removeNumber"
-          v-on:input="editNumber"
-        ></ContactNumberInput>
-        <div v-if="numbers.length > 1 && numbers.length !== index + 1">
-          <hr class="divider" />
+    <form @submit.prevent="onSubmit">
+      <div class="modal-style">
+        Add New Contact
+        <div>
+          <InputField
+            required
+            ref="inputRef"
+            class="input-field"
+            autocomplete="off"
+            inputId="nameInput"
+            v-model="name"
+            label="Name"
+            placeholder="Contact Name"
+          />
+        </div>
+        <hr class="divider" />
+        <div v-for="(number, index) in numbers" :key="index">
+          <ContactNumberInput
+            :index="index"
+            v-on:removeNumber="removeNumber"
+            v-on:input="editNumber"
+          ></ContactNumberInput>
+          <div v-if="numbers.length > 1 && numbers.length !== index + 1">
+            <hr class="divider" />
+          </div>
+        </div>
+        <div>
+          <Button type="button" :onClick="addNumber" class="add-button"
+            >Add Another Number?</Button
+          >
+        </div>
+        <div class="button-row">
+          <div class="error-text">
+            <span>{{ error }}</span>
+          </div>
+          <div>
+            <Button type="button" :onClick="onClose" class="close-button">Close</Button>
+            <Button type="submit">Submit</Button>
+          </div>
         </div>
       </div>
-      <div>
-        <Button :onClick="addNumber" class="add-button"
-          >Add Another Number?</Button
-        >
-      </div>
-      <div class="button-row">
-        <Button :onClick="onClose" class="close-button">Close</Button>
-        <Button :onClick="onSubmit">Submit</Button>
-      </div>
-    </div>
+    </form>
   </Modal>
 </template>
 
@@ -77,14 +85,25 @@ export default {
     },
     onSubmit: function () {
       let numbers = JSON.parse(JSON.stringify(this.numbers));
+
+      this.error = this.validatePhoneNums(numbers);
+
+      if (this.error) return;
+
       addContact({ name: this.name, numbers: [...numbers] });
       this.onClose();
+    },
+    validatePhoneNums: function (numbers) {
+      if (!numbers.every((num) => num.number.length === 12)) {
+        return "Number Must be 10 Digits";
+      }
     },
   },
 };
 
 const initialState = () => ({
   name: "",
+  error: "",
   numbers: [{ number: "", type: "" }],
 });
 </script>
@@ -94,13 +113,20 @@ const initialState = () => ({
   margin-top: 25px;
 }
 .modal-style {
-  min-width: 300px;
   max-width: 400px;
   padding: 20px;
+}
+.error-text {
+  color: red;
+  word-wrap: none;
+  text-align: left;
+  align-self: center;
 }
 .button-row {
   margin-top: 30px;
   text-align: right;
+  display: flex;
+  justify-content: space-between;
 }
 .close-button {
   margin-right: 10px;

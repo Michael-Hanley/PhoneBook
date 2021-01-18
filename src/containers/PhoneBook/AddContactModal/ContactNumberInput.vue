@@ -9,16 +9,21 @@
       >
     </div>
     <InputField
+      required
       class="input-field input-number"
       autocomplete="off"
       label="Phone Number"
-      inputId="numberInput"
+      id="numberInput"
       :value="number.number"
       :normalize="this.normalize"
       @input="(e) => onInput({ ...this.number, number: this.normalize(e) })"
       placeholder="###-###-####"
     />
-    <Button v-if="index !== 0" class="remove-button" :onClick="removeNumber"
+    <Button
+      v-if="index !== 0"
+      class="remove-button"
+      type="submit"
+      :onClick="removeNumber"
       ><SvgIcon name="trash"></SvgIcon
     ></Button>
   </div>

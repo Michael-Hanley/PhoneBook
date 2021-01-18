@@ -4,6 +4,7 @@
       <label :for="inputId" v-if="label">{{ label }}</label>
     </div>
     <input
+      :required="required"
       ref="inputRef"
       :id="inputId"
       :autocomplete="autocomplete"
@@ -18,7 +19,7 @@
 <script>
 export default {
   name: "InputField",
-  props: ["value", "label", "inputId", "placeholder", 'autocomplete'],
+  props: ["value", "label", "inputId", "placeholder", 'autocomplete', 'required'],
   data() {
     return {
       localValue: this.value,
