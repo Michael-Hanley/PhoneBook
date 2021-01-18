@@ -6,6 +6,7 @@
     <input
       ref="inputRef"
       :id="inputId"
+      :autocomplete="autocomplete"
       class="custom-input-field"
       v-model="localValue"
       @input="$emit('input', $event.target.value)"
@@ -17,7 +18,7 @@
 <script>
 export default {
   name: "InputField",
-  props: ["value", "label", "inputId", "placeholder"],
+  props: ["value", "label", "inputId", "placeholder", 'autocomplete'],
   data() {
     return {
       localValue: this.value,
@@ -38,6 +39,7 @@ export default {
   padding: 5px;
   margin: 5px;
   border: none;
+  font-size: inherit;
   outline: none;
   border-bottom: 1px solid gray;
 }
