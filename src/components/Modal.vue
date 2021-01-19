@@ -7,22 +7,22 @@
 </template>
 
 <script>
-import Card from "./Card";
-import { escape } from "@/utils/escape";
+import Card from './Card';
+import { escape } from '@/utils/escape';
 
 export default {
-  name: "modal",
+  name: 'modal',
   mixins: [escape],
   components: {
     Card,
   },
   methods: {
     escapeHandler: function () {
-      this.$emit("onClose");
+      this.$emit('onClose');
     },
     onClose: function (e) {
-      if (e.target.id === "modalBackdrop") {
-        this.$emit("onClose");
+      if (e.target.id === 'modalBackdrop') {
+        this.$emit('onClose');
       }
     },
   },

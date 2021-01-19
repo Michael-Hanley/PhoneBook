@@ -5,15 +5,15 @@
 </template>
 
 <script>
-import icons from "@/assets/icons.json";
+import icons from '@/assets/icons.json';
 
 export default {
-  name: "SvgIcon",
+  name: 'SvgIcon',
   props: {
     name: String,
     styles: {
       type: String,
-      default: "width: 24px; height: 24px",
+      default: 'width: 24px; height: 24px',
     },
   },
   computed: {

@@ -48,15 +48,15 @@
 </template>
 
 <script>
-import Modal from "@/components/Modal";
-import Button from "@/components/Button";
-import InputField from "@/components/InputField";
-import strings from "@/assets/strings";
-import ContactNumberInput from "./ContactNumberInput";
-import { addContact } from "../store";
+import Modal from '@/components/Modal';
+import Button from '@/components/Button';
+import InputField from '@/components/InputField';
+import strings from '@/assets/strings';
+import ContactNumberInput from './ContactNumberInput';
+import { addContact } from '../store';
 
 export default {
-  name: "AddContactModal",
+  name: 'AddContactModal',
   components: {
     ContactNumberInput,
     Modal,
@@ -77,13 +77,13 @@ export default {
       Object.assign(this.$data, initialState());
     },
     addNumber: function () {
-      this.numbers.push({ number: "", type: "" });
+      this.numbers.push({ number: '', type: '' });
     },
     removeNumber: function (index) {
       this.numbers.splice(index, 1);
     },
     onClose: function () {
-      this.$emit("onClose");
+      this.$emit('onClose');
       this.resetWindow();
     },
     onSubmit: function () {
@@ -98,16 +98,16 @@ export default {
     },
     validatePhoneNums: function (numbers) {
       if (!numbers.every((num) => num.number.length === 12)) {
-        return "Number Must be 10 Digits";
+        return 'Number Must be 10 Digits';
       }
     },
   },
 };
 
 const initialState = () => ({
-  name: "",
-  error: "",
-  numbers: [{ number: "", type: "" }],
+  name: '',
+  error: '',
+  numbers: [{ number: '', type: '' }],
   addAnotherNumber: strings.addAnotherNumber,
   addNewContact: strings.addNewContact,
   contactName: strings.contactName,

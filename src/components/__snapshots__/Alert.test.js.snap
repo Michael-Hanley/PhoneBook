@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert should render correctly 1`] = `
+<modal-stub>
+  <div class="modal-style">
+    <div>test</div>
+    <div class="button-row">
+      <button-stub onclick="function () { [native code] }" class="close-button">
+        Close
+      </button-stub>
+      <button-stub onclick="function () { [native code] }"> Ok </button-stub>
+    </div>
+  </div>
+</modal-stub>
+`;

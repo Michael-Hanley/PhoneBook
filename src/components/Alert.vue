@@ -15,12 +15,12 @@
 </template>
 
 <script>
-import Modal from "./Modal";
-import Button from "./Button";
-import strings from "@/assets/strings";
+import Modal from './Modal';
+import Button from './Button';
+import strings from '@/assets/strings';
 
 export default {
-  name: "AddContactModal",
+  name: 'AddContactModal',
   components: {
     Modal,
     Button,

@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`InputField should render correctly 1`] = `
+<div>
+  <div class="custom-input-label"><label>test-label</label></div> <input class="custom-input-field">
+</div>
+`;

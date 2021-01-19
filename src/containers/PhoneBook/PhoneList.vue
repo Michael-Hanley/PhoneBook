@@ -26,16 +26,16 @@
 </template>
 
 <script>
-import PhoneListItem from "./PhoneListItem";
-import AddContactModal from "./AddContactModal";
-import Button from "@/components/Button";
-import SvgIcon from "@/components/SvgIcon";
-import alert from "@/utils/alert";
-import { store, removeContact } from "./store";
-import strings from "@/assets/strings";
+import PhoneListItem from './PhoneListItem';
+import AddContactModal from './AddContactModal';
+import Button from '@/components/Button';
+import SvgIcon from '@/components/SvgIcon';
+import alert from '@/utils/alert';
+import { store, removeContact } from './store';
+import strings from '@/assets/strings';
 
 export default {
-  name: "PhoneList",
+  name: 'PhoneList',
   components: {
     PhoneListItem,
     AddContactModal,

@@ -19,7 +19,14 @@
 <script>
 export default {
   name: "InputField",
-  props: ["value", "label", "inputId", "placeholder", 'autocomplete', 'required'],
+  props: [
+    "value",
+    "label",
+    "inputId",
+    "placeholder",
+    "autocomplete",
+    "required",
+  ],
   data() {
     return {
       localValue: this.value,
