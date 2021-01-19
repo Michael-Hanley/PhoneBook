@@ -3,14 +3,18 @@ import Alert from './Alert.vue';
 
 let wrapper;
 describe('Alert', () => {
-  beforeEach(() => {
-    wrapper = shallowMount(Alert, {
-        slots: {
-            default: 'test'
-        }
-    })
-  });
-  it('should render correctly', () => {
-    expect(wrapper).toMatchSnapshot();
-  });
+    beforeEach(() => {
+        wrapper = shallowMount(Alert, {
+            slots: {
+                default: 'test'
+            },
+            propsData: {
+                onOk: jest.fn(),
+                onClose: jest.fn()
+            }
+        })
+    });
+    it('should render correctly', () => {
+        expect(wrapper).toMatchSnapshot();
+    });
 });
