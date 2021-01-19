@@ -25,12 +25,12 @@
 </template>
 
 <script>
-import Card from '@/components/Card';
-import SvgIcon from '@/components/SvgIcon';
-import Button from '@/components/Button';
+import Card from "@/components/Card";
+import SvgIcon from "@/components/SvgIcon";
+import Button from "@/components/Button";
 
 export default {
-  name: 'PhoneListItem',
+  name: "PhoneListItem",
   components: {
     Card,
     SvgIcon,
@@ -49,7 +49,7 @@ export default {
   },
   methods: {
     onRemove() {
-      this.$emit('clicked', this.index);
+      this.$emit("clicked", this.index);
     },
     showContactDetails() {
       this.showDetails = !this.showDetails;

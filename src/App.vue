@@ -5,13 +5,13 @@
 </template>
 
 <script>
-import PhoneBook from '@/containers/PhoneBook';
-import strings from '@/assets/strings';
+import PhoneBook from "@/containers/PhoneBook";
+import strings from "@/assets/strings";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    PhoneBook
+    PhoneBook,
   },
   data: function () {
     return {

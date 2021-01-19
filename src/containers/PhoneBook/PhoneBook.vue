@@ -6,10 +6,10 @@
 </template>
 
 <script>
-import PhoneList from './PhoneList';
+import PhoneList from "./PhoneList";
 
 export default {
-  name: 'PhoneBook',
+  name: "PhoneBook",
   components: {
     PhoneList,
   },

@@ -5,9 +5,9 @@ let wrapper;
 describe('Button', () => {
   beforeEach(() => {
     wrapper = shallowMount(Button, {
-        slots: {
-            default: 'test'
-        }
+      slots: {
+        default: 'test'
+      }
     })
   });
   it('should render correctly', () => {

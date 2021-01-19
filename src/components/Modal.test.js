@@ -5,9 +5,9 @@ let wrapper;
 describe('Modal', () => {
   beforeEach(() => {
     wrapper = shallowMount(Modal, {
-        slots: {
-            default: 'test'
-        }
+      slots: {
+        default: 'test'
+      }
     })
   });
   it('should render correctly', () => {

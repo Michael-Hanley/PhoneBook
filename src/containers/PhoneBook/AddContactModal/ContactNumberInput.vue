@@ -30,15 +30,15 @@
 </template>
 
 <script>
-import Button from '@/components/Button';
-import InputField from '@/components/InputField';
-import SvgIcon from '@/components/SvgIcon';
-import SelectDropdown from '@/components/SelectDropdown';
-import { normalizePhone } from '@/utils/normalize';
-import strings from '@/assets/strings';
+import Button from "@/components/Button";
+import InputField from "@/components/InputField";
+import SvgIcon from "@/components/SvgIcon";
+import SelectDropdown from "@/components/SelectDropdown";
+import { normalizePhone } from "@/utils/normalize";
+import strings from "@/assets/strings";
 
 export default {
-  name: 'ContactNumberInput',
+  name: "ContactNumberInput",
   components: {
     InputField,
     Button,
@@ -51,20 +51,20 @@ export default {
   data: function () {
     return {
       type: strings.type,
-      number: { number: '', type: strings.typeOptions[0] },
+      number: { number: "", type: strings.typeOptions[0] },
       typeOptions: strings.typeOptions,
     };
   },
   methods: {
     onInput: function (e) {
       this.number = { ...e };
-      this.$emit('input', { ...e }, this.index);
+      this.$emit("input", { ...e }, this.index);
     },
     normalize: function (e) {
       return normalizePhone(e);
     },
     removeNumber: function () {
-      this.$emit('removeNumber', this.index);
+      this.$emit("removeNumber", this.index);
     },
   },
 };

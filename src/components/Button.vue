@@ -10,7 +10,7 @@ export default {
     onClick: {
       type: Function,
       required: false,
-      default: () => null
+      default: () => null,
     },
   },
 };

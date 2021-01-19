@@ -18,7 +18,7 @@
 
 <script>
 export default {
-  name: 'SelectDropdown',
+  name: "SelectDropdown",
   props: {
     options: Array,
     value: String,
@@ -36,7 +36,7 @@ export default {
   methods: {
     onChange: function () {
       console.log(this.localValue);
-      this.$emit('input', this.localValue);
+      this.$emit("input", this.localValue);
     },
   },
 };
