@@ -1,18 +1,24 @@
 <template>
   <div id="app">
-    <PhoneBook msg="Welcome to your Phone Book!"/>
+    <PhoneBook :msg="title" />
   </div>
 </template>
 
 <script>
-import PhoneBook from './containers/PhoneBook'
+import PhoneBook from "@/containers/PhoneBook";
+import strings from "@/assets/strings";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
     PhoneBook
-  }
-}
+  },
+  data: function () {
+    return {
+      title: strings.title,
+    };
+  },
+};
 </script>
 
 <style>
@@ -24,7 +30,7 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
   display: flex;
-  align-items:center;
+  align-items: center;
   justify-content: center;
 }
 </style>

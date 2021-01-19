@@ -1,0 +1,14 @@
+{
+    "title": "Welcome to your Phone Book!",
+    "delete_contact": "Are you sure you want to delete this contact?",
+    "start_message": "Start by Adding a Contact",
+    "type": "Type",
+    "typeOptions": ["Mobile", "Home", "Fax", "Other"],
+    "addAnotherNumber": "Add Another Number?",
+    "addNewContact": "Add New Contact",
+    "name": "name",
+    "submit": "Submit",
+    "close": "Close",
+    "contactName": "Contact Name",
+    "ok": "Ok"
+}

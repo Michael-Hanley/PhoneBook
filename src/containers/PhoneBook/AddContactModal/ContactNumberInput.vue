@@ -5,7 +5,7 @@
         :options="this.typeOptions"
         :value="this.typeOptions[0]"
         v-model="number.type"
-        >Type</SelectDropdown
+        >{{ type }}</SelectDropdown
       >
     </div>
     <InputField
@@ -35,6 +35,7 @@ import InputField from "@/components/InputField";
 import SvgIcon from "@/components/SvgIcon";
 import SelectDropdown from "@/components/SelectDropdown";
 import { normalizePhone } from "@/utils/normalize";
+import strings from "@/assets/strings";
 
 export default {
   name: "ContactNumberInput",
@@ -49,8 +50,9 @@ export default {
   },
   data: function () {
     return {
-      number: { number: "", type: "Mobile" },
-      typeOptions: ["Mobile", "Home", "Fax", "Other"],
+      type: strings.type,
+      number: { number: "", type: strings.typeOptions[0] },
+      typeOptions: strings.typeOptions,
     };
   },
   methods: {

@@ -2,7 +2,7 @@
   <Modal @onClose="onClose">
     <form @submit.prevent="onSubmit">
       <div class="modal-style">
-        Add New Contact
+        {{ addNewContact }}
         <div>
           <InputField
             required
@@ -11,8 +11,8 @@
             autocomplete="off"
             inputId="nameInput"
             v-model="name"
-            label="Name"
-            placeholder="Contact Name"
+            :label="nameLabel"
+            :placeholder="contactName"
           />
         </div>
         <hr class="divider" />
@@ -27,17 +27,19 @@
           </div>
         </div>
         <div>
-          <Button type="button" :onClick="addNumber" class="add-button"
-            >Add Another Number?</Button
-          >
+          <Button type="button" :onClick="addNumber" class="add-button">
+            {{ addAnotherNumber }}
+          </Button>
         </div>
         <div class="button-row">
           <div class="error-text">
             <span>{{ error }}</span>
           </div>
           <div>
-            <Button type="button" :onClick="onClose" class="close-button">Close</Button>
-            <Button type="submit">Submit</Button>
+            <Button type="button" :onClick="onClose" class="close-button">
+              {{ close }}</Button
+            >
+            <Button type="submit">{{ submit }}</Button>
           </div>
         </div>
       </div>
@@ -49,6 +51,7 @@
 import Modal from "@/components/Modal";
 import Button from "@/components/Button";
 import InputField from "@/components/InputField";
+import strings from "@/assets/strings";
 import ContactNumberInput from "./ContactNumberInput";
 import { addContact } from "../store";
 
@@ -105,6 +108,12 @@ const initialState = () => ({
   name: "",
   error: "",
   numbers: [{ number: "", type: "" }],
+  addAnotherNumber: strings.addAnotherNumber,
+  addNewContact: strings.addNewContact,
+  contactName: strings.contactName,
+  nameLabel: strings.name,
+  submit: strings.submit,
+  close: strings.close,
 });
 </script>
 

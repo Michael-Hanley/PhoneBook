@@ -12,7 +12,7 @@
       @clicked="removeNumber"
     ></PhoneListItem>
     <div v-if="!contacts.length">
-      <h2>Start by Adding a Contact</h2>
+      <h2>{{ startMessage }}</h2>
       <Button :onClick="showModal" class="add-icon-button"
         ><SvgIcon name="addContact"></SvgIcon
       ></Button>
@@ -32,6 +32,7 @@ import Button from "@/components/Button";
 import SvgIcon from "@/components/SvgIcon";
 import alert from "@/utils/alert";
 import { store, removeContact } from "./store";
+import strings from "@/assets/strings";
 
 export default {
   name: "PhoneList",
@@ -44,6 +45,7 @@ export default {
   data: function () {
     return {
       isModalVisible: false,
+      startMessage: strings.start_message,
     };
   },
   computed: {
@@ -53,10 +55,8 @@ export default {
   },
   methods: {
     removeNumber: function (index) {
-      alert(
-        this.$refs.listRef,
-        "Are you sure you want to delete this contact?",
-        () => removeContact(index)
+      alert(this.$refs.listRef, strings.delete_contact, () =>
+        removeContact(index)
       );
     },
     showModal: function () {

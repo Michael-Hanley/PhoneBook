@@ -1,12 +1,14 @@
 <template>
-  <Modal @onClose="close">
+  <Modal @onClose="closeHandler">
     <div class="modal-style">
       <div>
         <slot></slot>
       </div>
       <div class="button-row">
-        <Button :onClick="close" class="close-button">Close</Button>
-        <Button :onClick="ok">Ok</Button>
+        <Button :onClick="closeHandler" class="close-button">
+          {{ close }}
+        </Button>
+        <Button :onClick="okHandler"> {{ ok }} </Button>
       </div>
     </div>
   </Modal>
@@ -15,6 +17,7 @@
 <script>
 import Modal from "./Modal";
 import Button from "./Button";
+import strings from "@/assets/strings";
 
 export default {
   name: "AddContactModal",
@@ -26,14 +29,20 @@ export default {
     onClose: Function,
     onOk: Function,
   },
+  data: function () {
+    return {
+      close: strings.close,
+      ok: strings.ok,
+    };
+  },
   methods: {
-    close: function () {
+    closeHandler: function () {
       if (this.onClose) this.onClose();
       this.$el.parentNode.removeChild(this.$el);
     },
-    ok: function () {
+    okHandler: function () {
       if (this.onOk) this.onOk();
-      this.close();
+      this.closeHandler();
     },
   },
 };
