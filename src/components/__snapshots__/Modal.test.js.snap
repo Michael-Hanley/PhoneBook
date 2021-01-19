@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`Modal should render correctly 1`] = `
-<div id="modalBackdrop" class="modal-backdrop">
+<div id="modalBackdrop" class="modal-backdrop" onclose="function mockConstructor() {
+        return fn.apply(this, arguments);
+      }">
   <card-stub class="modal">test</card-stub>
 </div>
 `;

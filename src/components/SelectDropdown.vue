@@ -35,7 +35,6 @@ export default {
   },
   methods: {
     onChange: function () {
-      console.log(this.localValue);
       this.$emit("input", this.localValue);
     },
   },

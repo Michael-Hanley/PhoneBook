@@ -4,7 +4,10 @@ exports[`SelectDropdown should render correctly 1`] = `
 <div>
   <div><label for="select">test</label></div> <select id="select" class="select">
     <option>
-      test-option-1, test-option-2
+      test-option-1
+    </option>
+    <option>
+      test-option-2
     </option>
   </select>
 </div>
